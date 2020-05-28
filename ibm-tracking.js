@@ -1,12 +1,11 @@
 var mobiledetectscript = document.createElement('script');
 mobiledetectscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.2/mobile-detect.min.js';
-document.head.appendChild(mobiledetectscript);
+document.body.appendChild(mobiledetectscript);
 
-var keentrackingscript = document.createElement('script');
-keentrackingscript.src = 'https://cdn.jsdelivr.net/npm/keen-tracking@4';
-document.head.appendChild(keentrackingscript);
+(function(name,path,ctx){ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}})
+('KeenTracking', 'https://cdn.jsdelivr.net/npm/keen-tracking@4/dist/keen-tracking.min.js', this);
 
-Keen.ready(function(){
+KeenTracking.ready(function(){
   const md = new MobileDetect(window.navigator.userAgent);
   // for Node.js example go https://github.com/hgoebl/mobile-detect.js#nodejs--express
   if (md.is('bot')) {
